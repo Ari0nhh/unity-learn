@@ -9,7 +9,12 @@ public class Torch : MonoBehaviour, Explorer.IInteractive
 
     public void Activate()
 	{
+        if (m_activated)
+            return;
+        
         Debug.Assert(null != AssignedDoor, "Assigned door is not assigned (funny, yes =)");
+        var source = GetComponent<AudioSource>();
+        source.Play();
 
         m_activated = true;
         m_initial = AssignedDoor.transform.position.y;
@@ -26,7 +31,7 @@ public class Torch : MonoBehaviour, Explorer.IInteractive
         if(Mathf.Abs(transform.rotation.eulerAngles.y - m_angle) < 45f)
             transform.RotateAround(WallPoint.transform.position, Vector3.forward, -30f * Time.deltaTime);
 
-        AssignedDoor.transform.Translate(0, -1f * Time.deltaTime, 0);
+        AssignedDoor.transform.Translate(0, -3f * Time.deltaTime, 0);
         if ((m_initial - AssignedDoor.transform.position.y) > 100f)
             m_opened = true;
     }
