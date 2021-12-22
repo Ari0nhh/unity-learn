@@ -7,6 +7,8 @@ public class Fireball : MonoBehaviour
     [SerializeField] private float Speed = 1f;
     [SerializeField] private AudioClip Explosion;
 
+    public int Damage { get; set; }
+
 	private void Start()
 	{
         m_source = GetComponent<AudioSource>();
@@ -22,8 +24,16 @@ public class Fireball : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-        if(!m_exploding)
+        if (other.gameObject.CompareTag("PassThrough"))
+            return;
+
+        if (!m_exploding) {
             StartCoroutine(BlowFireball());
+
+            var health = other.gameObject.GetComponent<CharacterHealth>();
+            if (null != health)
+                health.Damage(Damage);
+        }
 	}
 
     private IEnumerator BlowFireball()

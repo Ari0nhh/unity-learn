@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensivity: 9
   Axe: 0
+  HealthController: {fileID: 4602215251743672667}
 --- !u!1 &4576656716108236991
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +284,8 @@ GameObject:
   - component: {fileID: 4576656716108236986}
   - component: {fileID: 4576656716108236985}
   - component: {fileID: 4576656716108236984}
+  - component: {fileID: 3907881399184744469}
+  - component: {fileID: 4602215251743672667}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -387,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensivity: 5
   Axe: 1
+  HealthController: {fileID: 4602215251743672667}
 --- !u!114 &4576656716108236984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +406,30 @@ MonoBehaviour:
   Speed: 4
   Gravity: -9.8
   JumpSpeed: 0.2
+--- !u!114 &3907881399184744469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576656716108236991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a0ad1b82658f54c80b73ebc11b0383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4602215251743672667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4576656716108236991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea937994327fb84c9ea40bb61005828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8758554400375249161
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,4 +473,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5eda35f03b6184599829cf12513b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 4576656715697093507}
+  FireballPrefab: {fileID: 0}
