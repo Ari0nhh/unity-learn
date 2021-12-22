@@ -8,11 +8,11 @@ public class MouseLook : MonoBehaviour
     
     [SerializeField] private float Sensivity = 9.0f;
     [SerializeField] private Axes Axe = Axes.Both;
+    [SerializeField] private CharacterHealth HealthController;
     
     void Start()
     {
-        m_health = GetComponent<CharacterHealth>();
-        Debug.Assert(null != m_health, "Health controller is not assigned!");
+        Debug.Assert(null != HealthController, "Health controller is not assigned!");
 
         var body = GetComponent<Rigidbody>();
         if (null == body)
@@ -23,7 +23,7 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        if (m_health.IsDead)
+        if (HealthController.IsDead)
             return;
         
         switch(Axe) {
@@ -53,5 +53,4 @@ public class MouseLook : MonoBehaviour
     private const float m_min_angle = -45.0f;
     private const float m_max_angle = +45.0f;
     private float m_rot_x = 0.0f;
-    private CharacterHealth m_health = null;
 }

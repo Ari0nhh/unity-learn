@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensivity: 9
   Axe: 0
+  HealthController: {fileID: 4602215251743672667}
 --- !u!1 &4576656716108236991
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sensivity: 5
   Axe: 1
+  HealthController: {fileID: 4602215251743672667}
 --- !u!114 &4576656716108236984
 MonoBehaviour:
   m_ObjectHideFlags: 0
