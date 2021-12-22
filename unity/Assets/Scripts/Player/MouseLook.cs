@@ -11,6 +11,9 @@ public class MouseLook : MonoBehaviour
     
     void Start()
     {
+        m_health = GetComponent<CharacterHealth>();
+        Debug.Assert(null != m_health, "Health controller is not assigned!");
+
         var body = GetComponent<Rigidbody>();
         if (null == body)
             return;
@@ -20,6 +23,9 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        if (m_health.IsDead)
+            return;
+        
         switch(Axe) {
             case Axes.Horizontal:
                 transform.Rotate(0, Input.GetAxis("Mouse X") * Sensivity, 0);
@@ -47,4 +53,5 @@ public class MouseLook : MonoBehaviour
     private const float m_min_angle = -45.0f;
     private const float m_max_angle = +45.0f;
     private float m_rot_x = 0.0f;
+    private CharacterHealth m_health = null;
 }

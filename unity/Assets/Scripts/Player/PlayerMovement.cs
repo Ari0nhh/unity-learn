@@ -11,15 +11,29 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
 	{
         m_controller = GetComponent<CharacterController>();
+        m_health = GetComponent<CharacterHealth>();
 	}
 
 	// Update is called once per frame
 	void Update()
     {
-        Debug.Assert(null != m_controller, "Character controller component is missing!");
+        if (!m_alive)
+            return;
 
-		//0) Jumping
-		if (m_controller.isGrounded) {
+        Debug.Assert(null != m_controller, "Character controller component is missing!");
+        Debug.Assert(null != m_health, "Health controller component is missing!");
+
+		if (m_health.IsDead) {
+            m_alive = false;
+
+            transform.Rotate(Vector3.left, 90);
+            transform.Translate(0, 0.5f, 0);
+            return;
+		}
+        
+
+        //0) Jumping
+        if (m_controller.isGrounded) {
 			if (Input.GetButtonDown("Jump")) {
                 m_vert_speed = JumpSpeed;
 			}
@@ -40,25 +54,10 @@ public class PlayerMovement : MonoBehaviour
         movement = transform.TransformDirection(movement);
 
         m_controller.Move(movement);
-
-		//2) Activation (E button)
-		if (Input.GetButtonDown("Activate")) {
-
-            var ray = new Ray(transform.position, transform.forward);
-            var hits = Physics.SphereCastAll(ray, 5f);
-            foreach(var hit in hits) {
-                var go = hit.collider.gameObject;
-                if (!go.CompareTag("Interactive"))
-                    continue;
-
-                var comps = go.GetComponents<Explorer.IInteractive>();
-                foreach (var comp in comps)
-                    comp.Activate();
-            }
-        }
-        
     }
 
-	private CharacterController m_controller = null;
+    private bool m_alive = true;
+    private CharacterController m_controller = null;
+    private CharacterHealth m_health = null;
     private float m_vert_speed = 0f;
 }
