@@ -2636,6 +2636,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: pumpkin
       objectReference: {fileID: 0}
+    - target: {fileID: 5320081787504958248, guid: 149914faacece2940a120e1783c4c6a9,
+        type: 3}
+      propertyPath: Waypoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5320081787504958248, guid: 149914faacece2940a120e1783c4c6a9,
+        type: 3}
+      propertyPath: Waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 72154391}
+    - target: {fileID: 5320081787504958248, guid: 149914faacece2940a120e1783c4c6a9,
+        type: 3}
+      propertyPath: Waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 2071243422}
+    - target: {fileID: 5320081787504958248, guid: 149914faacece2940a120e1783c4c6a9,
+        type: 3}
+      propertyPath: Waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1453999988}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149914faacece2940a120e1783c4c6a9, type: 3}
 --- !u!4 &1619588828 stripped
